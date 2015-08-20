@@ -1,6 +1,7 @@
 
 from _web import WebExtractor as web
 from _csv import CsvExtractor as csv
+from _geojson import GeoJsonExtractor as geojson
 from _json import JsonExtractor as json
 from _html import HtmlExtractor as html
 from _zipfile import ZipExtractor as zipfile
@@ -19,6 +20,7 @@ extractors = [
         # parsers
         csv(),
         zipfile(),
+        geojson(),
         json(),
         kml(),
         html(),
