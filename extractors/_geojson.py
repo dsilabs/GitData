@@ -13,11 +13,11 @@ class GeoJsonExtractor(Extractor):
         t = data.read()
         try:
             data = geojson.loads(t)
-            result = geojson.is_valid(data)
-            if result['valid'] == 'yes':
-                return [('geojson', geojson.loads(t))]
         except:
             # possibly malformed json?
             start = min(t.find('{'), t.find('['))
-            return [('geojson', geojson.loads(t[start:]))]
+            data = geojson.loads(t[start:])
+        result = geojson.is_valid(data)
+        if result['valid'] == 'yes':
+            return [('geojson', data)]
 
