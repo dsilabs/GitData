@@ -7,7 +7,7 @@ import geojson
 class GeoJsonExtractor(Extractor):
 
     def can_extract(self, target, raw_data):
-        return target['lpath'].endswith('json')
+        return target['url'].lower().endswith('json')
 
     def extract(self, target, data):
         t = data.read()
